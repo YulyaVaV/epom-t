@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epom</title>
+  <link rel="stylesheet" href="./assets//scss/styles.scss">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+</head>
+<body>
+  <div class="content">
+    <header class="header">
+      <div class="header__logo">
+        <img src="./assets/img/Logo.svg" alt="" class="header__logo-img logo">
+      </div>
+    </header>
+    <main>
+      <div class="wrapper">
+        <section class="description">
+          <h1 class="description__title">Epom – <span class="description__title-green-word">Customizable</span> Google Ad Manager Alternative</h1>
+          <svg id="greenline" width="327" height="5" viewBox="0 0 327 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1C16.8696 1 32.7392 1 48.6087 1C62.1107 1 75.4836 2.48803 89.0208 2.48803C128.424 2.48803 167.765 1 207.148 1C221.644 1 236.564 2.59966 251 3C263.945 3.359 276.113 4.20565 289 3C301.14 1.86419 313.806 1 326 1" stroke="#A3DF73" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <p class="description__subtitle">Stay cool this summer with Epom: get a 75% discount on our white-label technology and build your own DSP right away. </p>
+          <div class="description__frame">
+            <p class="description__frame-text">New Epom DSP 4.0 is a pure blast. They provided us with all we needed from the tech side to bring our advertising in-house. Usually, it takes years. We’ve managed in two weeks.  </p>
+            <span class="description__frame-triangle"></span>
+            <span class="description__frame-line"></span>
+          </div>
+          <div class="description__info">
+            <div>
+              <img src="./assets/img/person.png" alt="person" class="description__info-photo">
+            </div>
+            <div class="description__info-main">
+              <p class="description__info-name">Andrey Petrik</p>
+              <p class="description__info-position">CEO at NetHunt</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="sing-up">
+          <div class="sing-up__info">
+            <h4 class="sing-up__info-title">Sign up</h4>
+            <p class="sing-up__info-subtitle">before August 31 and pay $500 during the first three months</p>
+            <div class="sing-up__info-wrapp">
+              <input placeholder="Name" type="text" class="sing-up__info-input-name">
+              <input placeholder="Business email" type="text" class="sing-up__info-input-email">
+              <form>
+                <div class="__select" data-state="">
+                  <div class="__select__title">Company type</div>
+                  <div class="__select__content">
+                    <input id="singleSelect0" class="__select__input" type="radio" name="singleSelect" />
+                    <label for="singleSelect0" tabindex="0" class="__select__label" data-value="Ad Agency"></label>
+                    <input id="singleSelect1" class="__select__input" type="radio" name="singleSelect" />
+                    <label for="singleSelect1" tabindex="0" class="__select__label" data-value="Ad Network"></label>
+                    <input id="singleSelect2" class="__select__input" type="radio" name="singleSelect" />
+                    <label for="singleSelect2" tabindex="0" class="__select__label" data-value="Advertiser"></label>
+                    <input id="singleSelect3" class="__select__input" type="radio" name="singleSelect" />
+                    <label for="singleSelect3" tabindex="0" class="__select__label" data-value="Publisher"></label>
+                    <input id="singleSelect4" class="__select__input" type="radio" name="singleSelect" />
+                    <label for="singleSelect4" tabindex="0" class="__select__label" data-value="Other"></label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <button class="sing-up__button">Get Discount</button>
+          </div>
+          <div class="sing-up__background">
+            <div class="sing-up__background-background1 parallax" data-offset="15">
+              <img src="./assets/img/background1.png" alt="background1" class="sing-up__background-img">
+            </div>
+            <div class="sing-up__background-background2 parallax" data-offset="15">
+              <img src="./assets/img/background2.png" alt="background2" class="sing-up__background-img">
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+<script>
+  const selectSingle = document.querySelector('.__select');
+  const selectSingle_title = selectSingle.querySelector('.__select__title');
+  const selectSingle_labels = selectSingle.querySelectorAll('.__select__label');
+
+  selectSingle_title.addEventListener('click', () => {
+    if ('active' === selectSingle.getAttribute('data-state')) {
+      selectSingle.setAttribute('data-state', '');
+    } else {
+      selectSingle.setAttribute('data-state', 'active');
+    }
+  });
+
+  // Close when click to option
+  for (let i = 0; i < selectSingle_labels.length; i++) {
+    selectSingle_labels[i].addEventListener('click', (evt) => {
+      selectSingle_title.textContent = evt.target.textContent;
+      selectSingle.setAttribute('data-state', '');
+    });
+  }
+
+
+  $(window).on('mousemove', function(e) {
+    var w = $(window).width();
+    var h = $(window).height();
+    var offsetX = 0.5 - e.pageX / w;
+    var offsetY = 0.5 - e.pageY / h;
+
+    $(".parallax").each(function(i, el) {
+      var offset = parseInt($(el).data('offset'));
+      var translate = "translate3d(" + Math.round(offsetX * offset) + "px," + Math.round(offsetY * offset) + "px, 0px)";
+        $(el).css({
+          '-webkit-transform': translate,
+          'transform': translate,
+          'moz-transform': translate
+        });
+      });
+    });
+
+
+  gsap.to(".logo", {duration: 1.5, rotation: 360, scale: 1});
+
+  gsap.from(".description__frame", {
+    duration: 1, 
+    opacity: 0, 
+    delay: 0.5, 
+    y: -100, 
+  });
+
+  const line = document.getElementById('greenline')
+  line.style.width = 327;
+
+</script>
+</html>
