@@ -3,7 +3,7 @@
 - [DEMO LINK HERE](https://chic-kataifi-17ee72.netlify.app/)
 
 ------------------------------------------
-HTML, SCSS, BEM, jQuery, Gsap, Parallax
+Webpack, HTML, SCSS, BEM, jQuery, Gsap, Parallax
 -----------------------------------
 
 Installing
