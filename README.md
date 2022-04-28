@@ -1,6 +1,6 @@
 ## Epom
 
-- [DEMO LINK HERE](https://sunny-lily-1beebb.netlify.app/)
+- [DEMO LINK HERE](https://chic-kataifi-17ee72.netlify.app/)
 
 ------------------------------------------
 HTML, SCSS, BEM, jQuery, Gsap, Parallax
